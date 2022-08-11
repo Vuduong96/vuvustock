@@ -11,13 +11,13 @@ function NavBar() {
     <div className={styles.NavBarContainer}>
       <Navbar className={styles.dashboard}>
         <Container  >
-          <SLink  to={'/dashboard/'}  className={styles.dashboardText}>Dashboard</SLink>
+          <SLink  to={'/dashboard/AMPL/'}  className={styles.dashboardText}>Dashboard</SLink>
         </Container>
       </Navbar>
       <br />
       <Navbar className={styles.stocks}>
         <Container >
-          <SLink to={'/stockList/'} className={styles.stocksText}>Stocks</SLink>
+          <SLink to={'/stocks/'} className={styles.stocksText}>Stocks</SLink>
         </Container>
       </Navbar>
       <br />

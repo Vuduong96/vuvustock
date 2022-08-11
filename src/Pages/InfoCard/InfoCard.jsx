@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './InfoCard.module.css';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import Moment from 'moment';
 import {CategoryScale} from 'chart.js'; 
@@ -13,10 +13,12 @@ function InfoCard() {
 
   const[dailyData, setDailyData] = useState([]);
 
+  const {symbol} = useParams();
+
   const[quote, setQuote] = useState([]);
 
-  const getStockData = async () => {
-    const api = await fetch(`https://api.twelvedata.com/time_series?symbol=AMPL&interval=1day&format=JSON&apikey=ef6d325096324b31b500fe5987ab162d`
+  const getStockData = async (symbol) => {
+    const api = await fetch(`https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1day&format=JSON&apikey=${process.env.REACT_APP_API_KEY}`
     );
   const fetcheddata = await api.json();
 
@@ -28,7 +30,7 @@ function InfoCard() {
 };
 
     const getQuote = async () => {
-      const quote_api = await fetch(`https://api.twelvedata.com/quote?symbol=AAPL&apikey=ef6d325096324b31b500fe5987ab162d`
+      const quote_api = await fetch(`https://api.twelvedata.com/quote?symbol=AAPL&apikey=${process.env.REACT_APP_API_KEY}`
       );
 
     const fetchedquote = await quote_api.json();
@@ -40,8 +42,8 @@ function InfoCard() {
     };
 
 useEffect(() => {
-  getStockData();
-}, []);
+  getStockData(symbol);
+}, [symbol]);
 
 useEffect(() => {
   getQuote();
