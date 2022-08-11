@@ -1,0 +1,24 @@
+.mainContainer{
+    position: relative;
+    width: 100%;
+  /*  height: 1024px;*/
+    height: 1100px;
+    color: white;
+    background-color: #171622;
+}
+
+.myStock{
+    position: absolute;
+    width: 191px;
+    height: 36px;
+    left: 33px;
+    top: 2px;
+
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
